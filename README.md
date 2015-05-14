@@ -1,2 +1,2 @@
 # angularjs-larnin
-Personal AngularJS Learning code
+MSSG personal AngularJS learning code
