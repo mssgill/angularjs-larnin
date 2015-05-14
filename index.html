@@ -1,0 +1,121 @@
+<!doctype html>
+<i> --- </i>
+May 2015
+<p>
+  <i> --- </i>
+  MSSG
+
+
+
+	  
+<center>
+    <h2>  Beginning some AngJS larnin' </h2>
+  </center>
+      
+
+  <html >
+  <head>
+        <!-- Include the Bootstrap minified CSS that i downloaded  -->
+<!--	I don't like what this CSS does to the page, so i comment it out for now: <link href="bootstrap.min.css" rel="stylesheet" /> -->
+
+	<!-- Include some font they prefer  -->
+	<link href='http://fonts.googleapis.com/css?family=Roboto:500,300,700,400' rel='stylesheet' type='text/css'>
+    
+	<!-- Include the AngularJS library -->
+	<script src="angular.min.js"></script>
+  </head>
+  
+      <body>
+
+	<h4>		<i> ------ Basic new html things to me: </i>	</h4>
+	<ul>
+	  <li> 		<b> span </b> is an html tag like <b> div </b> ) 
+	</ul>
+	
+
+
+	<h4> ------ AngJS	</h4>
+	
+        <i> --- Tell AngJS we're going to start using it with the  ng-app directive </i>
+	<div ng-app>
+	  
+	  <i> ---  Can do simple expr stuff in double braces	  </i>  
+	  <p>The number {{5+10}} is 15 </p>
+	  <p>	  a = {{a=4}}
+	  <p>	  a*a = {{  a*a }}	  
+
+	    
+	  <p>  <i> --- Can execute a fair number of js functions to do simple expr stuff too </i>	    
+	  <p> UpperCasifying the js:	  {{ "Angular" + "js".toUpperCase() }}
+
+	    
+	  <p>  <i> --- Can even execute some conditionals </i>
+	  <p>There {{count = 4; (count == 1 ? "is " : "are ") + count*a }} of them.
+
+	  <p> <i> --- This directive is another way to assign vars: <b> ng-init </b>, and won't show the var onscreen until called -- the assignment must be in doublequotes in this case </i>
+	    <span ng-init="sum = 3 + 2" >
+	      <span ng-init=" unit = 1" > 
+	      	
+		Now we can say that  {{sum + unit}} is {{unit*2}} more than {{sum-unit}}. 
+	      </span>
+	    </span>
+	    
+	  <p>  <p>  <i> --- Another way to give the expr is to use the <b> ng-bind </b> directive </i>
+	   
+		
+	  <p>	      Using another way that implicitly cloaks the init html:  {{sum + unit}} is {{unit*2}} more <span ng-bind='sum - unit'></span>
+	  
+	    
+	  <p>  <i> --- Assigning a number of properties to a larger container var </i> 
+	    <span ng-init="time = {count: 12, units: 'months', collection: 'year'}">
+	      <p>
+		There are {{time.count}} {{time.units}} in a {{time.collection}}.
+	      </p>
+	    </span>
+
+
+	  <p>  <i> --- Can also use arrays  </i> 
+	    <span ng-init="months = ['January','February','March','April']">
+	      <p>    {{months[3]}} follows {{months[2]}} in {{months}}.  </p>	      
+	    </span>
+
+
+	  <p>    <i> --- Nested array in a var </i>	    
+	    <ul>
+	      
+	     
+	      <li>	  <p>    <i> --- Way i understand it: </i> 
+		  
+		  <br>	      cardinalarray =      {{cardinalarray =   ['first','second','third' ] }}
+		  <br>	      verbarray =      {{verbarray =   ['run','jump','skydive' ] }}
+		  <br>	      {{sentence2 =  {words: cardinalarray , verbs: verbarray } }}
+	    
+		  <br>	      The first elt of cardinalarray is <i> {{cardinalarray[0]}}. </i>
+		  {{ "The "+ sentence2.words[0] +" dude was gonna "+ sentence2.verbs[1] }}.
+		  
+		  
+		  
+		  <li>	  <p>    <i> ---  Their way, less clear to me: </i>
+		      <div ng-init="paragraph = {sentence: {words: ['first','second','third'] }}">
+			
+			<p>
+			  
+			  {{paragraph.words[1]}},
+			  {{paragraph.sentence[2]}},
+			  {{paragraph.sentence.words[3]}}
+			</p>
+		      </div>
+		      
+	    </ul>	    
+	    
+	</div>
+      </body>
+
+
+
+  <p>    <i> --- </i>
+  <p>    <i> --- </i>
+  <p>    <i> --- </i>
+      <p>    <i> --- </i> 
+	    
+</html>
