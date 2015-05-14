@@ -1,13 +1,13 @@
 <!doctype html>
-<i> --- </i>
+<i> -------- </i>
 May 2015
 <p>
-  <i> --- </i>
+  <i> -------- </i>
   MSSG
 
 
 
-	  
+<hr>	  
 <center>
     <h2>  Beginning some AngJS larnin' </h2>
   </center>
@@ -27,32 +27,33 @@ May 2015
   
       <body>
 
-	<h4>		<i> ------ Basic new html things to me: </i>	</h4>
+	<h4>		<i> ----------- Basic new html things to me: </i>	</h4>
 	<ul>
 	  <li> 		<b> span </b> is an html tag like <b> div </b> ) 
 	</ul>
 	
 
 
-	<h4> ------ AngJS	</h4>
+	<h4> ----------- AngJS	</h4>
 	
-        <i> --- Tell AngJS we're going to start using it with the  ng-app directive </i>
+        <i> -------- Tell AngJS we're going to start using it with the  ng-app directive </i>
 	<div ng-app>
 	  
-	  <i> ---  Can do simple expr stuff in double braces	  </i>  
+	  <i> --------  Can do simple expr stuff in double braces	  </i>  
 	  <p>The number {{5+10}} is 15 </p>
 	  <p>	  a = {{a=4}}
 	  <p>	  a*a = {{  a*a }}	  
 
 	    
-	  <p>  <i> --- Can execute a fair number of js functions to do simple expr stuff too </i>	    
+	  <p>  <i> -------- Can execute a fair number of js functions to do simple expr stuff too </i>	    
 	  <p> UpperCasifying the js:	  {{ "Angular" + "js".toUpperCase() }}
 
 	    
-	  <p>  <i> --- Can even execute some conditionals </i>
+	  <p>  <i> -------- Can even execute some conditionals </i>
 	  <p>There {{count = 4; (count == 1 ? "is " : "are ") + count*a }} of them.
 
-	  <p> <i> --- This directive is another way to assign vars: <b> ng-init </b>, and won't show the var onscreen until called -- the assignment must be in doublequotes in this case </i>
+	  <p> <i> -------- This directive is another way to assign vars: <b> ng-init </b>, and won't show the var onscreen until called -- the assignment must be in doublequotes in this case </i>
+	  <p>
 	    <span ng-init="sum = 3 + 2" >
 	      <span ng-init=" unit = 1" > 
 	      	
@@ -60,13 +61,13 @@ May 2015
 	      </span>
 	    </span>
 	    
-	  <p>  <p>  <i> --- Another way to give the expr is to use the <b> ng-bind </b> directive </i>
+	  <p>  <p>  <i> -------- Another way to give the expr is to use the <b> ng-bind </b> directive </i>
 	   
 		
-	  <p>	      Using another way that implicitly cloaks the init html:  {{sum + unit}} is {{unit*2}} more <span ng-bind='sum - unit'></span>
+	  <p>	      This way implicitly cloaks the init html:  {{sum + unit}} is {{unit*2}} more <span ng-bind='sum - unit'></span>
 	  
 	    
-	  <p>  <i> --- Assigning a number of properties to a larger container var </i> 
+	  <p>  <i> -------- Assigning a number of properties to a larger container var </i> 
 	    <span ng-init="time = {count: 12, units: 'months', collection: 'year'}">
 	      <p>
 		There are {{time.count}} {{time.units}} in a {{time.collection}}.
@@ -74,17 +75,17 @@ May 2015
 	    </span>
 
 
-	  <p>  <i> --- Can also use arrays  </i> 
+	  <p>  <i> -------- Can also use arrays  </i> 
 	    <span ng-init="months = ['January','February','March','April']">
 	      <p>    {{months[3]}} follows {{months[2]}} in {{months}}.  </p>	      
 	    </span>
 
 
-	  <p>    <i> --- Nested array in a var </i>	    
+	  <p>    <i> -------- Nested array in a var </i>	    
 	    <ul>
 	      
 	     
-	      <li>	  <p>    <i> --- Way i understand it: </i> 
+	      <li>	  <p>    <i> -------- Way i understand it: </i> 
 		  
 		  <br>	      cardinalarray =      {{cardinalarray =   ['first','second','third' ] }}
 		  <br>	      verbarray =      {{verbarray =   ['run','jump','skydive' ] }}
@@ -95,27 +96,129 @@ May 2015
 		  
 		  
 		  
-		  <li>	  <p>    <i> ---  Their way, less clear to me: </i>
+		  <li>	  <p>    <i> --------  Their way, less clear to me: </i>
 		      <div ng-init="paragraph = {sentence: {words: ['first','second','third'] }}">
 			
 			<p>
+			  "{{typo.sentence.words[0]}}",
+			  "{{paragraph.typo.words[1]}}",
+			  "{{paragraph.sentence.typo[2]}}",
+			  "{{paragraph.sentence.words[3]}}".
 			  
 			  {{paragraph.words[1]}},
 			  {{paragraph.sentence[2]}},
 			  {{paragraph.sentence.words[3]}}
 			</p>
 		      </div>
+
 		      
 	    </ul>	    
+
+	  <p>    <i> --------Short discussion of <b> ng-non-bindable </b> directive </i>
+	  <p>    <i> --------The <b> ng-show </b> and <b> ng-hide </b> directives </i>
+
+	    <p ng-init="authorized = true">
+	      The secret code is
+	      <span ng-show="!authorized">0123</span>
+	      <span ng-hide="!authorized">not for you to see</span>
+	    </p>
+
+	  <p>    <i> -------- Two way data binding using the <b> ng-click </b> directive </i>
 	    
+	  <p ng-init="authorized = true">
+	    The secret code is
+	    <span ng-show="authorized">0123</span>
+	    <span ng-hide="authorized">not for you to see</span>
+	    <br>
+	    <input type="button" value="toggle" ng-click="authorized = !authorized">
+	    </p>
+
+	  <p>    <i> --------  Two way data binding using the <b> ng-model </b> directive </i>
+
+	    
+	  <p> <input type="text" ng-model="firstbox">
+	    
+	    is bound to
+	    
+	    <strong ng-bind="firstbox"></strong>.
+	    
+	    Type something in the box!
+
+	  <p>    <i> -------- Two way data binding including an init value in box: </i>	    
+	  <p>
+		<input type="text" ng-init="secondbox = 'Justmessin' " ng-model="secondbox">
+		is bound to
+		<strong ng-bind="secondbox"></strong>.
+		Change it!
+
+	  <p>    <i> -------- Checkbox input <b> </b> </i>		
+	  <p>
+	    <input type='checkbox' ng-init='optIn = true' ng-model='optIn'>
+	    is bound to		    
+	    <strong ng-bind="optIn"></strong>.		    
+	    Change it!
+	    
+	  <p>    <i> -------- Binding a checkbox to a string <b> </b> </i>	    
+	  <p>
+	    <input type='checkbox' ng-init='feeling = "love it"' ng-model='feeling'
+		   
+		   ng-true-value='"love it"' ng-false-value='"hate it"'>		    
+	    is bound to		    
+	    <strong ng-bind="feeling"></strong>.
+	    
+	    Change it!
+
+  <p>    <i> -------- Pulldown menu -- <b> select </b> directive </i>
+    <select ng-init='answer = "maybe"' ng-model='answer'>
+      <option value='yes' selected>Yes</option>
+      <option value='no'>No</option>
+      <option value='maybe'>Maybe</option>
+      <option value='noway'>Not telling you</option>
+      
+    </select>
+    is bound to
+    <strong ng-bind="answer"></strong>.
+<p>    Change it!
+
+    
+<p>
+  <font color = #ff0000>    .....?  Up till now, everything called a 'directive' was "ng-directivename", but now they called select a directive..? </font>
+  
+<p>    <i> -------- Radiobutton input <b> </b> </i>
+  <div ng-init='answer2 = "maybe"'>
+    
+    <input type='radio' ng-model='answer2' value='yes'> Yes
+    
+    <input type='radio' ng-model='answer2' value='no'> No
+    
+    <input type='radio' ng-model='answer2' value='maybe'> Maybe
+        <input type='radio' ng-model='answer2' value='spittoon'> You will get nothing and like it
+    
+<p>    is bound to
+    
+    <strong ng-bind="answer2"></strong>.
+
+<p>    Change it!
+
+</div>
+	    <hr>
 	</div>
       </body>
 
 
 
-  <p>    <i> --- </i>
-  <p>    <i> --- </i>
-  <p>    <i> --- </i>
-      <p>    <i> --- </i> 
+
+      <p>    <i> -------- <b> </b> </i>
+      <p>    <i> -------- <b> </b> </i>
+	  <p>    <i> -------- <b> </b> </i>
+	  <p>    <i> -------- <b> </b> </i>
+	      <p>    <i> -------- <b> </b> </i>
+	      <p>    <i> -------- <b> </b> </i>
+		  <p>    <i> -------- <b> </b> </i>
+		  <p>    <i> -------- <b> </b> </i>
+		      <p>    <i> -------- <b> </b> </i>
+  <p>    <i> -------- <b> </b> </i>
+    
+
 	    
 </html>
