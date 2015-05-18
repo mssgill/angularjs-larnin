@@ -24,19 +24,20 @@ May 2015
 	<!-- Include the AngularJS library -->
 	<script src="angular.min.js"></script>
   </head>
-  
-      <body>
 
+  <body>
+    
 	<h4>		<i> ----------- Basic new html things to me: </i>	</h4>
 	<ul>
-	  <li> 		<b> span </b> is an html tag like <b> div </b> ) 
+	  <li> 		<b> span </b> is an html tag like <b> div </b>  
 	</ul>
 	
 
 
 	<h4> ----------- AngJS	</h4>
 	
-        <i> -------- Tell AngJS we're going to start using it with the  ng-app directive </i>
+        <i> -------- Tell AngJS we're going to start using it with the  ng-app directive with <b> ng-app </b> </i>
+	
 	<div ng-app>
 	  
 	  <i> --------  Can do simple expr stuff in double braces	  </i>  
@@ -168,42 +169,52 @@ May 2015
 	    
 	    Change it!
 
-  <p>    <i> -------- Pulldown menu -- <b> select </b> directive </i>
-    <select ng-init='answer = "maybe"' ng-model='answer'>
-      <option value='yes' selected>Yes</option>
-      <option value='no'>No</option>
-      <option value='maybe'>Maybe</option>
-      <option value='noway'>Not telling you</option>
-      
-    </select>
-    is bound to
-    <strong ng-bind="answer"></strong>.
-<p>    Change it!
-
-    
-<p>
-  <font color = #ff0000>    .....?  Up till now, everything called a 'directive' was "ng-directivename", but now they called select a directive..? </font>
-  
-<p>    <i> -------- Radiobutton input <b> </b> </i>
-  <div ng-init='answer2 = "maybe"'>
-    
-    <input type='radio' ng-model='answer2' value='yes'> Yes
-    
-    <input type='radio' ng-model='answer2' value='no'> No
-    
-    <input type='radio' ng-model='answer2' value='maybe'> Maybe
-        <input type='radio' ng-model='answer2' value='spittoon'> You will get nothing and like it
-    
-<p>    is bound to
-    
-    <strong ng-bind="answer2"></strong>.
-
-<p>    Change it!
-
-</div>
+	  <p>    <i> -------- Pulldown menu -- <b> select </b> directive </i>
+	    <select ng-init='answer = "maybe"' ng-model='answer'>
+	      <option value='yes' selected>Yes</option>
+	      <option value='no'>No</option>
+	      <option value='maybe'>Maybe</option>
+	      <option value='noway'>Not telling you</option>
+	      
+	    </select>
+	    is bound to
+	    <strong ng-bind="answer"></strong>.
+	  <p>    Change it!
+	    
+	    
+	  <p>
+	    <font color = #ff0000>    .....?  Up till now, everything called a 'directive' was "ng-directivename", but now they called select a directive..? </font>
+	    
+	  <p>    <i> -------- Radiobutton input <b> </b> </i>
+	    <div ng-init='answer2 = "maybe"'>	      
+	      <input type='radio' ng-model='answer2' value='yes'> Yes	      
+	      <input type='radio' ng-model='answer2' value='no'> No	      
+	      <input type='radio' ng-model='answer2' value='maybe'> Maybe
+              <input type='radio' ng-model='answer2' value='spittoon'> You will get nothing and like it
+	      
+	      <p>    is bound to
+		
+		<strong ng-bind="answer2"></strong>.
+		
+	      <p>    Change it!
+		
+	    </div>
+	</div> <!-- End ng-app for this section -->
 	    <hr>
-	</div>
-      </body>
+
+	  <p>	    --------------------------------------- Controllers
+
+	    <div ng-app="module">
+	      
+	      <p ng-controller="MessageController as controller">
+		{{controller.message}}
+	      </p>
+	      
+	  <p>
+	    
+	    </div>
+	
+      </body> <!-- This is the end div for ng-app -->
 
 
 
