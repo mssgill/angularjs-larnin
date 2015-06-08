@@ -15,4 +15,3 @@ console.log('------------- In mssgAngapp!!!')
      console.log('------------- In controller1!!!');
      console.log(    $scope);
 });
-
