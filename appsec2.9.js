@@ -9,7 +9,7 @@ console.log('------------- In mssgAngapp!!!')
  mssgAngApp.controller('controller1', function ($scope) {
 
      $scope.getname = function() {
-         return 'John Doe';
+         return 'MSSG the Man';
      }
      
      console.log('------------- In controller1!!!');
