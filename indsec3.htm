@@ -3,16 +3,20 @@
     <head>
         <title>Learn and Understand AngularJS</title>
        
+          <!-- load bootstrap and fontawesome locally -->
+        <link rel="stylesheet" href="bootstrap.min.css" />
+        
         <script src="angular.min.js"></script>
         <script src="angular-messages.min.js"></script>
         <script src="angular-resource.min.js"></script>
 
         
-        <!--        <script src="appsec3.11.js"></script>
-        <script src="appsec3.12.js"></script>
-        <script src="appsec3.13.js"></script>
--->
         <script src="appsec3.14.js"></script>
+    <!--
+    <script src="appsec3.11.js"></script>
+    <script src="appsec3.12.js"></script>
+    <script src="appsec3.14.js"></script>
+    -->
 
     </head>
     <body>
@@ -26,6 +30,18 @@
             </div>
             
       </div>
-      
+
+        <!-- Form validation -- used in sec 3.14 -->
+        <form name="myForm">
+            This is an input test field: <input type="text" ng-model="field" name="myField" required minlength="5" />
+            
+            <div ng-messages="myForm.myField.$error">
+            
+                <!-- This "alert-danger" thing is from bootstrap, gives the red color to the warning -->
+            <div class="alert alert-danger" ng-message="required">You did not enter nuttin' yet </div>
+            <div ng-message="minlength">The value entered is too short, less than 5 char, keep it going, till the sun goes down! </div>
+            </div>
+        </form>
+        
     </body>
 </html>
