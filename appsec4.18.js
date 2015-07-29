@@ -18,7 +18,9 @@ myApp.controller('mainController', ['$scope', '$filter', function($scope, $filte
 
 var tb = document.getElementById("textbox1");
 
-console.log(tb);
+// Sec 4.19:
+
+console.log(tb);  // ??? - Why is this not properly logged to console?  Causes prob with the below, also 
 
 tb.addEventListener("keypress", function(event){
     console.log("You scoundrel -- you pressed a key!")
