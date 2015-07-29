@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en-us" ng-app="myApp">
+
+    
+      <!-- Beginning stuff to import and define all -->
+    <head>
+        <title>Hey Come on Everypeople: Let's Learn and Understand AngularJS!</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta charset="UTF-8">
+
+        <!-- load bootstrap and fontawesome via CDN -->
+  <link rel="stylesheet" href="bootstrap.min.css" />
+        
+        <!-- load angular locally -->
+        <script src="angular.min.js"></script>
+        
+         <!-- load js files that implement angjs -->
+        <script src="appsec4.17.js"></script>
+        <script src="appsec4.18.js"></script>
+
+        <style>
+            html, body, input, select, textarea
+            {
+                font-size: 1.05em;
+            }
+        </style>
+        
+    </head>
+
+    
+      <!-- Start body -->
+    <body>
+        
+          <!-- Header *of* the body -->
+        <header>
+			<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="/">AngularJS</a>
+				</div>
+
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+				</ul>
+			</div>
+			</nav>
+		</header>
+
+        
+          <!-- Actual body per se starts here -->
+        <div class="container">
+
+            <div ng-controller="mainController">            
+                <h1>Stuff from sec 4.17: Hello {{ name + '. How are you?' }}</h1>  
+                
+                <hr>
+                
+                <div>
+<h1>               Stuff from sec 4.18:  What is your twitter handle?</label></h1>
+                    <!-- This is the "ng-model" directive for angjs, this says go look in the model, look at the handle var of scope, and then retrieve and display it below when asked for.  This is a 2-way data binding. -->
+                            <input type="text" ng-model="handle" />
+                </div>
+                
+                <hr />
+                
+                 <!-- This is the "ng-model" directive for angjs -->
+                As entered: <h1>twitter.com/{{ handle }}</h1>  <!-- Note no parens after handle because it's *not* a function, but is a direct variable belonging to scope, if you look in the app.js -->
+              
+            All lower case-ified: <h1>twitter.com/{{ lowercasehandle() }}</h1> <!-- Now we have parens after lowercasehandle because it *is* a function, also belonging to scope, if you look in the appsec4.18.js -->
+            
+             All upper case-ified: <h1>twitter.com/{{ uppercasehandle() }}</h1> <!-- Now we have parens after uppercasehandle because it *is* a function, as above  -->
+            </div>
+            
+		</div>
+
+    <hr> <hr>
+    <!-- JS aside about textboxes -->
+    A JS textbox: <input type="text" id="textbox1" />
+    
+    </body>
+</html>

@@ -1,5 +1,7 @@
-var jsThingies = [1,7,'19', function(){alert('YoBabyYo')} ];
+var jsThingies = [1,7,'19',  function(){alert('YoBabyYo')} ];
 
-console.log (jsThingies)
+console.log(jsThingies)
 
-// jsThingies[3]();
+console.log(jsThingies[3]());
+
+// , function(){alert('YoBabyYo')}
