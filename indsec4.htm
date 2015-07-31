@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us" ng-app="myApp">
+<html lang="en-us"  ng-app="myApp">
 
     
       <!-- Beginning stuff to import and define all -->
@@ -14,10 +14,10 @@
         <!-- load angular locally -->
         <script src="angular.min.js"></script>
         
-         <!-- load js files that implement angjs -->
-        <script src="appsec4.17.js"></script>
-        <script src="appsec4.18.js"></script>
-
+         <!-- load js files that implement angjs code -->
+       <script src="appsec4.17-4.24.js"></script> 
+  
+        
         <style>
             html, body, input, select, textarea
             {
@@ -50,32 +50,129 @@
           <!-- Actual body per se starts here -->
         <div class="container">
 
-            <div ng-controller="mainController">            
-                <h1>Stuff from sec 4.17: Hello {{ name + '. How are you?' }}</h1>  
-                
+            
+            
+            
+            
+            <div ng-controller="mainController417">          
+                <h1>Stuff from sec 4.17: Hello {{ name + '. How are you?' }}</h1>                  
                 <hr>
-                
-                <div>
-<h1>               Stuff from sec 4.18:  What is your twitter handle?</label></h1>
+            </div>
+            
+            
+            
+          
+            <div ng-controller="mainController418">                         
+                <h1>Stuff from sec 4.18:  What is your twitter handle?</label></h1>
                     <!-- This is the "ng-model" directive for angjs, this says go look in the model, look at the handle var of scope, and then retrieve and display it below when asked for.  This is a 2-way data binding. -->
-                            <input type="text" ng-model="handle" />
+                    <input type="text" ng-model="handle" />
+                
+                
+                <hr />
+                
+                As entered: <h1>twitter.com/{{ handle }}</h1>  <!-- Note no parens after handle because it's *not* a function, but is a direct variable belonging to scope, if you look in the app.js -->
+              
+            All lower case-ified: <h1>twitter.com/{{ lowercasehandle418() }}</h1> <!-- Now we have parens after lowercasehandle because it *is* a function, also belonging to scope, if you look in the appsec4.18.js -->
+            
+             All upper case-ified: <h1>twitter.com/{{ uppercasehandle418() }}</h1> <!-- Now we have parens after uppercasehandle because it *is* a function, as above  
+NB: 4.18 and 4.20 seem to clash, so you won't get the upper case-ified stuff if you also load up 4.20 -->
+            </div>
+            
+        
+        
+        
+        
+        
+            <div ng-controller="mainController420">              <hr>   <h1>               Stuff from sec 4.20:  What is the flying speed of an African sparrow? </h1>
+                <input type="text" ng-model="handle420" />
+                
+                <hr />                
+        
+                As entered: <h1>sparrowspeed.com/{{ handle420 }}</h1>  
+              
+            All lower case-ified: <h1> sparrowspeed.com/{{ lowercasehandle420() }}</h1>
+             All upper case-ified: <h1>sparrowspeed.com/{{ uppercasehandle420() }}</h1> 
+            </div>
+
+        
+        
+        
+        
+        
+        
+            <div ng-controller="mainController421">
+        <hr>    
+                <div>
+                    <h1>  Stuff from sec 4.21: What is your twitter handle, you tweetomaniac?</h1>
+                    (And you need exactly 5 chars for this example)
+                    <input type="text" ng-model="handle421" />
+                </div>
+                
+                <!-- The stuff in the braces below is a JS 'object', and the conditionals following it are met -->
+                <div class="alert" ng-class="{ 'alert-warning': handle421.length < char_reqt, 'alert-danger': handle421.length > char_reqt }" ng-if="handle421.length !== char_reqt">
+                <!-- If the above conditional is met, then we check the ones below this -->
+                    
+                  <!-- The ng-show directive will show the msg if it meets the reqt below -->
+
+                    <div ng-show="handle421.length < char_reqt">
+                        You have less than 5 characters, what, you got RSI??!
+                    </div>
+                    
+                    <div ng-show="handle421.length > char_reqt">
+                        You have more than 5 characters, slow down, tigger!
+                    </div>
+                    
                 </div>
                 
                 <hr />
                 
-                 <!-- This is the "ng-model" directive for angjs -->
-                As entered: <h1>twitter.com/{{ handle }}</h1>  <!-- Note no parens after handle because it's *not* a function, but is a direct variable belonging to scope, if you look in the app.js -->
-              
-            All lower case-ified: <h1>twitter.com/{{ lowercasehandle() }}</h1> <!-- Now we have parens after lowercasehandle because it *is* a function, also belonging to scope, if you look in the appsec4.18.js -->
-            
-             All upper case-ified: <h1>twitter.com/{{ uppercasehandle() }}</h1> <!-- Now we have parens after uppercasehandle because it *is* a function, as above  -->
+                <h1>twitter.com/{{ lowercasehandle421() }}</h1>
+                
+                <h3>Rules</h3>
+                <ul>
+                      <!-- This loops over the list of rules-->
+                    <li ng-repeat="rule in rulesforlife">
+                        {{ rule.rulename }}
+                    </li>
+                </ul>
+                
             </div>
+        
+        
+        
+        
+        
+            <div ng-controller="mainController422">
+        <hr>    
+                <div>
+                    <h1>  Stuff from sec 4.22:</h1>
+                    
+                    <input type="button" value='click' ng-click="didyouclick()" />
+                </div>  
+        
+                // Using ng-cloak will not show 'nametoshow' even for a split sec when presenting to the screen, will only show when the proper var has been interpolated in
             
-		</div>
+                <div ng-cloak> 
+                    {{ nametoshow }} 
+                </div>
+                
+                <!-- other events: 
+- keydown
+- keypress
+- change
+  
+-->
+                
+            </div>
+        
+                
+                
+                
+        </div> <!-- Container div ends here -->
 
     <hr> <hr>
     <!-- JS aside about textboxes -->
-    A JS textbox: <input type="text" id="textbox1" />
+    A JS textbox (not from anything in Section 4): <input type="text" id="textbox1" />
     
     </body>
 </html>
