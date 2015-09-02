@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en-us" ng-app="myApp">
+    <head>
+        <title>Learn and Understand AngularJS</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta charset="UTF-8">
+
+        <!-- load bootstrap and fontawesome via CDN -->
+       <link rel="stylesheet" href="bootstrap.min.css" />
+        
+        <!-- load angular locally -->
+        <script src="angular.min.js"></script>
+   
+            <!-- load angular-route locally -->
+        <script src="angular-route.min.js"></script>
+   
+         <!-- load js files that implement angjs code -->    
+        <script src="appsec5.25-5.28.js"></script>
+        
+    </head>
+    <body>
+
+        <header>
+			<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="/">AngularJS</a>
+				</div>
+
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+				</ul>
+			</div>
+			</nav>
+		</header>
+
+          <!-- Actual body per se starts here -->
+        <div class="container">
+            
+      <!------------------------------------------->     
+
+              <h1>Stuff from sec 5.25 </h1>
+            <div ng-controller="mainController525">         
+                
+                <h1>{{ name }}</h1>                
+            </div>            
+            
+            <div ng-controller="secondController525">
+                <h4>Smaller: {{ name }}</h4>                
+            </div>
+            
+            
+            
+          <!------------------------------------------->     
+            <h1>Stuff from sec 5.26 </h1>
+            
+            <div class="row">
+                <div class="col-md-12">
+                    
+                    <a href="#/bookmark/1">Go to Bookmark 1</a>                    
+                    <p></p>                
+                    <a href="#bmark2">Go to Bookmark 2</a>
+                    <p></p>
+                    <a href="#bmarkk3">Go to Bookmark 3</a>
+                    
+                    <p>
+                      Their crazy Latin stuff went here.
+                    </p>
+                    
+            
+                </div>
+            </div>
+                
+
+          <!------------------------------------------->     
+          <h1>Stuff from sec 5.27 </h1>
+            
+            First: showing how the location listed after the hashmark can be accessed by a built in angjs function: 
+            <div ng-controller="mainController527">
+                <h4> Make sure to check the console log</h4>                
+            </div>
+            
+            
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                    <li><a href="#/second"><i></i> Second</a></li>
+				</ul>
+			</div>
+			</nav>
+		</header>
+
+        <div class="container">
+
+            <div ng-view></div>
+            
+            
+		</div>
+
+    </body>
+</html>
